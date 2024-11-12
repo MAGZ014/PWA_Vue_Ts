@@ -1,0 +1,73 @@
+{
+  "id": "Lobos Kit PWA",
+  "dir": "ltr",
+  "lang": "es",
+  "name": "Lobos Kit PWA",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "/Login",
+  "short_name": "Lobos_Kit",
+  "theme_color": "#003571",
+  "description": "Lobos Kit es una aplicación móvil y web diseñada para ayudar a estudiantes de nuevo ingreso de la Universidad Tecnológica de San Juan del Río a cotizar y seleccionar equipos de cómputo, materiales y software necesarios para sus carreras. La app ofrece recomendaciones personalizadas basadas en el plan de estudios, comparaciones de precios, y opciones de financiamiento.",
+  "orientation": "natural",
+  "background_color": "#FFFFFF",
+  "prefer_related_applications": false,
+  "display_override": ["window-controls-overlay"],
+  "screenshots": [
+    {
+      "src": "assets/screen.png"
+    },
+    {
+      "src": "assets/screen.png"
+    },
+    {
+      "src": "assets/screen.png"
+    }
+  ],
+  "features": ["Cross Platform", "low-latency inking", "fast", "useful AI"],
+  "icons": [
+    {
+      "src": "/icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["productivity"],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "edge_side_panel": {},
+  "shortcuts": [
+    {
+      "name": "Start Live Session",
+      "short_name": "Start Live",
+      "description": "Jump direction into starting or joining a live session",
+      "url": "/?startLive",
+      "icons": [
+        {
+          "src": "/assets/icon/256.png",
+          "sizes": "256x256"
+        }
+      ]
+    }
+  ]
+}
