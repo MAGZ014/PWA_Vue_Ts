@@ -7,11 +7,11 @@ axios.defaults.withCredentials = true;
 export default defineComponent({
   name: "EquipoForm",
   setup() {
-    const equipoList = ref([]);
-    const tipoOptions = ref([]);
+    const equipoList = ref<any[]>([]);
+    const tipoOptions = ref<any[]>([]);
 
     const form = ref({
-      id: null,
+      id: null as number | null,
       datos: "",
       url: "",
       img_url: "",
@@ -22,6 +22,17 @@ export default defineComponent({
     });
 
     const isEditing = ref(false);
+
+    const fetchEquipos = async () => {
+      try {
+        const equipoResponse = await axios.get("http://localhost:3001/equipo", {
+          withCredentials: true,
+        });
+        equipoList.value = equipoResponse.data;
+      } catch (error) {
+        console.error("Error al cargar equipos:", error);
+      }
+    };
 
     onMounted(async () => {
       try {
@@ -34,13 +45,6 @@ export default defineComponent({
         console.error("Error al cargar datos:", error);
       }
     });
-
-    const fetchEquipos = async () => {
-      const equipoResponse = await axios.get("http://localhost:3001/equipo", {
-        withCredentials: true,
-      });
-      equipoList.value = equipoResponse.data;
-    };
 
     const submitForm = async () => {
       try {
@@ -76,12 +80,12 @@ export default defineComponent({
       };
     };
 
-    const editEquipo = (equipo) => {
+    const editEquipo = (equipo: any) => {
       form.value = { ...equipo };
       isEditing.value = true;
     };
 
-    const deleteEquipo = async (id) => {
+    const deleteEquipo = async (id: number) => {
       try {
         await axios.delete(`http://localhost:3001/equipo/${id}`, {
           withCredentials: true,
@@ -273,7 +277,7 @@ export default defineComponent({
                         viewBox="0 0 16 16"
                       >
                         <path
-                          d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5V12a.5.5 0 0 1-1 0V5.5A.5.5 0 0 1 5.5 5zm3 0a.5.5 0 0 1 .5.5V12a.5.5 0 0 1-1 0V5.5a.5.5 0 0 1 .5-.5zm3 0a.5.5 0 0 1 .5.5V12a.5.5 0 0 1-1 0V5.5a.5.5 0 0 1 .5-.5z"
+                          d="M5.5 5.5A.5.5 0 0 1 6 5h4a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-8zm-1-3A1.5 1.5 0 0 1 6 1h4a1.5 1.5 0 0 1 1.5 1.5v1h3a.5.5 0 0 1 0 1H1a.5.5 0 0 1 0-1h3v-1z"
                         />
                       </svg>
                     </button>
