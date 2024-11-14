@@ -8,8 +8,8 @@ export interface State {
 
 const store = createStore<State>({
   state: {
-    isAuthenticated: false,
-    token: null,
+    isAuthenticated: localStorage.getItem("token") ? true : false,
+    token: localStorage.getItem("token"),
   },
   getters: {
     isAuthenticated(state): boolean {
@@ -20,10 +20,12 @@ const store = createStore<State>({
     SET_AUTH(state, token: string) {
       state.isAuthenticated = true;
       state.token = token;
+      localStorage.setItem("token", token); // Guarda el token en localStorage
     },
     LOGOUT(state) {
       state.isAuthenticated = false;
       state.token = null;
+      localStorage.removeItem("token"); // Elimina el token de localStorage
     },
   },
   actions: {

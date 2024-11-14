@@ -8,7 +8,7 @@
           width="170"
           height="50"
           class="d-inline-block align-top"
-        />
+        />a
       </a>
       <button
         class="navbar-toggler"
@@ -27,14 +27,15 @@
             <a class="nav-link" href="/Home">Home</a>
           </li>
           <li v-if="isAuthenticated" class="nav-item">
-            <a class="nav-link" href="/Store">Store</a>
+            <router-link class="nav-link" to="/Store">Store</router-link>
           </li>
           <li v-if="isAuthenticated" class="nav-item">
-            <a class="nav-link" href="/Cuenta">Carrera</a>
+            <router-link class="nav-link" to="/Cuenta">Carrera</router-link>
           </li>
           <li v-if="!isAuthenticated" class="nav-item">
-            <a class="nav-link" href="/Login">Sign Up</a>
+            <router-link class="nav-link" to="/Login">Sign Up</router-link>
           </li>
+
           <li v-if="isAuthenticated" class="nav-item">
             <a class="nav-link" href="#" @click.prevent="logout">
               <svg

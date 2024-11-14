@@ -8,12 +8,23 @@
 </template>
 
 <script>
+// App.vue
+import { mapActions } from "vuex";
 import Navbar from "./components/AppNavbar.vue";
 
 export default {
-  name: "App",
   components: {
     Navbar,
+  },
+  name: "App",
+  methods: {
+    ...mapActions(["login"]),
+  },
+  created() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.login(token); // Vuelve a cargar el estado de autenticación si existe un token en localStorage
+    }
   },
 };
 </script>
