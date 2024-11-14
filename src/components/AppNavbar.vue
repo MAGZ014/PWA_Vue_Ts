@@ -8,7 +8,7 @@
           width="170"
           height="50"
           class="d-inline-block align-top"
-        />a
+        />
       </a>
       <button
         class="navbar-toggler"
