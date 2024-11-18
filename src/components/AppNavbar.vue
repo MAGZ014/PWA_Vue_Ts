@@ -23,6 +23,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item" v-if="isAuthenticated">
+            <ButtonSubscribe class="nav-link" />
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/Home">Home</a>
           </li>
@@ -62,7 +65,11 @@
 </template>
 
 <script>
+import ButtonSubscribe from "./ButtonSubscribe.vue";
 export default {
+  components: {
+    ButtonSubscribe,
+  },
   name: "AppNavbar",
   computed: {
     isAuthenticated() {

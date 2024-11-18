@@ -69,8 +69,18 @@ export default {
           { withCredentials: true }
         );
         this.isLoading = false;
-        // Guardamos la información de la sesión en el estado de Vuex
-        this.$store.dispatch("login", response.data.token);
+
+        // Verifica si la respuesta tiene un token y un id
+        console.log("Respuesta del login:", response);
+
+        const userId = response.data.id; // Obtén el id del usuario de la respuesta
+
+        if (!userId) {
+          throw new Error("No se recibió el id.");
+        }
+
+        // Guardamos la información de la sesión en el estado de Vuex o en cookies
+        this.$store.dispatch("login", { userId }); // Guarda  el id
         this.$router.push("/Store"); // Redirige a la página de Store
       } catch (error) {
         this.isLoading = false;

@@ -4,6 +4,7 @@ import App from "./App.vue";
 import router from "./routes/router"; // Importar el router
 import store from "./store/store"; // Importar el store de Vuex
 import "./registerServiceWorker";
+import "./service-worker";
 
 const app = createApp(App);
 

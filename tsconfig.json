@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost",
+      "ESNext",
+      "DOM",
+      "webworker"
+    ],
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -15,8 +24,7 @@
     "types": ["webpack-env"],
     "paths": {
       "@/*": ["src/*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    }
   },
   "include": [
     "src",
